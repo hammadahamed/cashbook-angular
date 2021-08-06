@@ -11,6 +11,7 @@ import { LogItemComponent } from './log-item/log-item.component';
 import { UserLogsService } from './services/user-logs.service';
 import { NewLogComponent } from './new-log/new-log.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [UserLogsService],
+  providers: [UserLogsService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

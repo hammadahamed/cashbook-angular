@@ -100,7 +100,7 @@ export class AppComponent implements OnInit {
   }
 
   get getUserName() {
-    return this.userName.length ? this.userName : "User";
+    return this._userLogService.userName.length ? this._userLogService.userName : "User";
   }
 
   /* -------------------------------- OVERVIEW -------------------------------- */
