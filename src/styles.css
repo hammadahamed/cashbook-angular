@@ -1,1 +1,76 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: nunito;
+  src: url(assets/Nunito/Nunito-Regular.ttf);
+}
+
+@font-face {
+  font-family: inter;
+  src: url(assets/inter/Inter-Regular.ttf);
+}
+
+body {
+  font-family: inter;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+.grid-rows-12 {
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+}
+
+.row-span-8 {
+  grid-row: span 8 / span 8;
+}
+
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  @apply text-gray-400 text-sm !important;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: red;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: red;
+}
+
+.selectOption:hover {
+  background-color: #abadb1 !important;
+}
+
+/* ---------------------------- CUSTOM SCROLL-BAR --------------------------- */
+
+*::-webkit-scrollbar {
+  @apply w-1.5 h-1;
+}
+
+*::-webkit-scrollbar-track {
+  @apply rounded-full bg-gray-100;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply w-1.5 h-1 bg-gray-400 bg-opacity-60 rounded-full;
+}
+
+*::-webkit-scrollbar-track-piece {
+  @apply bg-transparent;
+}
+
+html {
+  scrollbar-color: #abadb1;
+  scrollbar-width: 6px;
+}
+
+/* ---------------------------- CUSTOM SCROLL-BAR --------------------------- */

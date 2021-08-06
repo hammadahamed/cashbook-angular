@@ -1,0 +1,57 @@
+<div *ngIf="showDeleteModal"
+    class="fixed h-full w-full bg-black bg-opacity-10 z-30 top-0 left-0 flex justify-center items-center">
+    <div class="h-1/4 w-1/4 rounded-md bg-white mb-20 flex flex-col justify-center items-center">
+        <p>Sure to delete all logs related to <span class="underline" style="color: #25c9db;">{{log.name}}</span> ?</p>
+        <br>
+        <div class="flex justify-center items-center gap-5">
+            <div class="px-2 py-0.5 rounded-md bg-gray-50 hover:bg-gray-100 cursor-pointer"
+                (click)="showDeleteModal = false">
+                Cancel
+            </div>
+            <div class="px-2 py-0.5 rounded-md bg-gray-50 hover:bg-gray-100 cursor-pointer text-red-500"
+                (click)="deleteRecord()">
+                Delete
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="relative m-12 overflow-auto border-2 border-gray-200 border-dashed rounded-xl" style="height: 75vh;">
+    <div class="sticky top-0 bg-white shadow-sm">
+        <div class="bg-white p-5 flex justify-between items-center">
+            <h1 class="font-bold text-3xl text-gray-600">{{log.name}}</h1>
+            <p class="text-gray-400" style="font-size: 14px;">you should {{!log.type ?'reveice' : 'settle'}}</p>
+            <p class="text-3xl {{getColor(log.type)}}">{{currency}} {{log.amount}}</p>
+        </div>
+        <div class="h-px bg-gray-200 mx-5 "></div>
+
+        <div class="px-10 pb-2 mb-4 mt-2 flex justify-between items-center">
+            <p class="text-xs text-gray-400 ">TRANSACTIONS</p>
+            <p class="text-red-500 cursor-pointer bg-gray-50 rounded-md px-2 py-0.5 text-xs  hover:bg-gray-100"
+                (click)="showDeleteModal = true">
+                Delete</p>
+        </div>
+    </div>
+
+    <div class="w-full px-24 ">
+        <div *ngFor="let h of logHistory" class="flex justify-between items-center my-2 py-2 border-b border-gray-100">
+            <div>
+                <p>{{h.type ? "You got" : "You Gave"}}</p>
+                <p class="text-gray-400 text-xs">Settlement Date : {{h.settlementDate}}</p>
+            </div>
+
+            <p class="text-xl {{getColor(h.type)}}">{{currency}} {{h.amount}}</p>
+
+        </div>
+    </div>
+
+    <!-- <div class="text-red-500 absolute bottom-0 w-full flex justify-center items-center py-2.5">
+        <p>remove</p>
+    </div> -->
+</div>
+
+
+
+
+
+<!-- <p>{{log.amount}}</p> -->

@@ -1,0 +1,14 @@
+<div (mouseenter)="optionToggle()" (mouseleave)="optionToggle()" class=" cursor-pointer hover:bg-gray-50 px-2 rounded border-b border-gray-100 mx-16 py-5 grid grid-cols-3
+    justify-between items-center">
+    <!-- one -->
+    <div class="col-span-1">{{log.name}}</div>
+
+    <div class="flex justify-center items-center">
+        <p class="text-gray-400" style="font-size: 14px;">you should {{!log.type ?'reveice' : 'settle'}}</p>
+    </div>
+    <!-- two -->
+    <div class=" flex justify-end col-span-1">
+        <div *ngIf="log.type" class="text-green-500">{{currency}} {{log.amount}}</div>
+        <div *ngIf="!log.type" class="text-red-500">{{currency}} {{log.amount}}</div>
+    </div>
+</div>
